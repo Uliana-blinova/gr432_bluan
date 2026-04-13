@@ -1,0 +1,16 @@
+{
+    "name": "uliana-blinova/gr432-bluan",
+    "description": "Simple MVC framework",
+    "type": "project",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Uliana Blinova",
+            "email": "ulanablinova0@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "php": "^7.4 | ^8.0"
+    }
+}
