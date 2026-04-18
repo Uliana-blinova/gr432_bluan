@@ -20,6 +20,20 @@ class Route
            self::$routes[$route] = $action;
        }
    }
+public function redirect(string $url): void
+{
+   header('Location: ' . $this->getUrl($url));
+}
+
+public function getUrl(string $url): string
+{
+   return self::$prefix . $url;
+}
+
+public function __construct(string $prefix = '')
+{
+   self::setPrefix($prefix);
+}
 
   public function start(): void
 {
