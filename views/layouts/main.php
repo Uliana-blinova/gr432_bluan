@@ -9,7 +9,7 @@
 </head>
 <body>
     <div>
-        <?= $contnet ?? ''; ?>
+        <?= $content ?? ''; ?> 
     </div>
 </body>
 </html>
