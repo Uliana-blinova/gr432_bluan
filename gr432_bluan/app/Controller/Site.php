@@ -2,15 +2,14 @@
 
 namespace Controller;
 
-use Illuminate\Database\Capsule\Manager as DB;
 use Src\View;
 
 class Site
 {
    public function index(): string
    {
-       $posts = DB::table('posts')->get();
-       return (new View())->render('site.post', ['posts' => $posts]);
+       $view = new View();
+       return $view->render('site.hello', ['message' => 'index working']);
    }
 
    public function hello(): string
