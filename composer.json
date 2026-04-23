@@ -1,0 +1,15 @@
+{
+    "name": "uliana-blinova/gr432_bluan",
+    "description": "Simple mvc freamework",
+    "type": "project",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "yes"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "php": "^7.4 | ^8.0"
+    }
+}
