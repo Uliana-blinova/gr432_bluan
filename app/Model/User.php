@@ -12,9 +12,11 @@ class User extends Model implements IdentityInterface
 
    public $timestamps = false;
    protected $fillable = [
-       'name',
+        'user_id',
+       'full_name',
        'login',
-       'password'
+       'password',
+       'role'
    ];
 
    protected static function booted()
@@ -25,14 +27,14 @@ class User extends Model implements IdentityInterface
        });
    }
 
-   public function findIdentity(int $id)
+   public function findIdentity(int $user_id)
    {
-       return self::where('id', $id)->first();
+       return self::where('user_id', $user_id)->first();
    }
 
    public function getId(): int
    {
-       return $this->id;
+       return $this->user_id;
    }
 
    public function attemptIdentity(array $credentials)

@@ -2,7 +2,7 @@
 return [
    'driver' => 'mysql',
    'host' => 'localhost',
-   'database' => 'mvc',
+   'database' => 'dean_office',
    'username' => 'root',
    'password' => '',
    'charset' => 'utf8',
