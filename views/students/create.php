@@ -1,22 +1,50 @@
-<h1>Добавление студента</h1>
-<form action="http://localhost/pop-it-mvc/students/store" method="POST">
-    <input type="text" name="surname" placeholder="Фамилия">
-    <input type="text" name="name" placeholder="Имя">
-    <input type="text" name="patronymic" placeholder="Отчество">
-    <select name="group_id">
-        <option></option>
-        <?php foreach ($groups as $group): ?>
-            <option value="<?= $group->group_id ?>"><?=$group->name?></option>
+<form action="/pop-it-mvc/students/store" method="POST" class="student-form">
+    <h1>Добавление студента</h1>
+    <div class="form-group">
+        <input type="text" name="surname" placeholder="Фамилия" class="form-input" required>
+    </div>
+    
+    <div class="form-group">
+        <input type="text" name="name" placeholder="Имя" class="form-input" required>
+    </div>
+    
+    <div class="form-group">
+        <input type="text" name="patronymic" placeholder="Отчество" class="form-input">
+    </div>
+    
+    <div class="form-group">
+        <select name="group_id" class="form-select">
+            <option value="" disabled selected>Выберите группу</option>
+            <?php foreach ($groups as $group): ?>
+                <option value="<?= $group->group_id ?>"><?= htmlspecialchars($group->name) ?></option>
             <?php endforeach ?>
-    </select>
-    <label for="M"> 
-        <input type="radio" name="gender" id="M" value="male">Мужской
-    </label>
-    <label for="W"> 
-        <input type="radio" name="gender" id="W" value="female">Женский
-    </label>
-    <input type="text" name="address" placeholder="Адрес">
-    <label>Дата рождения</label>
-    <input type="date" name="birth_date">
-    <input type="submit" value="Сохранить">
+        </select>
+    </div>
+    
+    <div class="form-group">
+        <label class="form-label">Пол</label>
+        <div class="radio-group">
+            <label class="radio-label">
+                <input type="radio" name="gender" value="male" class="radio-input">
+                <span class="radio-custom">Мужской</span>
+            </label>
+            <label class="radio-label">
+                <input type="radio" name="gender" value="female" class="radio-input">
+                <span class="radio-custom">Женский</span>
+            </label>
+        </div>
+    </div>
+    
+    <div class="form-group">
+        <input type="text" name="address" placeholder="Адрес" class="form-input">
+    </div>
+    
+    <div class="form-group">
+        <label class="form-label">Дата рождения</label>
+        <input type="date" name="birth_date" class="form-input">
+    </div>
+    
+    <div class="form-group">
+        <button type="submit" class="button">Сохранить</button>
+    </div>
 </form>

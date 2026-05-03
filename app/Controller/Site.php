@@ -18,12 +18,22 @@ class Site
 
    public function hello(): string
    {
-       return new View('site.hello', ['message' => 'hello working']);
+        $user = Auth::user();
+        $stats = [
+        'students' => \Model\Student::count(),
+        'groups' => \Model\Group::count(),
+        'disciplines' => \Model\Disciplines::count()
+    ];
+    
+    return (new View())->render('site.hello', [
+        'user' => $user,
+        'stats' => $stats
+    ]);
    }
     public function signup(Request $request): string
     {
    if ($request->method === 'POST' && User::create($request->all())) {
-       app()->route->redirect('/go');
+       app()->route->redirect('/hello');
    }
    return new View('site.signup');
 }

@@ -19,7 +19,7 @@ class Request
 
    public function all(): array
    {
-       return $this->body + $this->files();
+       return $this->body + $this->files();// + $this->json()
    }
 
    public function set($field, $value):void
@@ -44,4 +44,7 @@ class Request
        }
        throw new Error('Accessing a non-existent property');
    }
+//    public function json():array{
+//     return json_decode(file_get_contents('php://input'));
+//    }
 }

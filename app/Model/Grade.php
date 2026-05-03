@@ -1,25 +1,25 @@
 <?php
-
 namespace Model;
-
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Grade extends Model{
-    use HasFactory;
     public $timestamps = false;
-
+    
+    protected $table = 'grades';
+    protected $primaryKey = 'grade_id';
+    
     protected $fillable = [
         'student_id',
         'discipline_id',
         'grade_value',
         'date_recorded'
     ];
-    public function students(){
-        return $this->belongsTo(Student::class, 'student_id', 'student_id');
+    
+    public function student(){
+        return $this->belongsTo(Student::class, 'student_id', 'id');
     }
-    public function disciplines(){
+    
+    public function discipline(){
         return $this->belongsTo(Disciplines::class, 'discipline_id', 'discipline_id');
     }
-
 }

@@ -43,12 +43,13 @@ class View
 
        if (file_exists($this->getPathToMain()) && file_exists($path)) {
 
-           extract($data, EXTR_PREFIX_SAME, '');
 
            ob_start();
+           extract($data, EXTR_PREFIX_SAME, '');
            require $path;
            $content = ob_get_clean();
 
+           extract($data, EXTR_PREFIX_SAME, '');
            return require($this->getPathToMain());
        }
        throw new Exception('Error render');

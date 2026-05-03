@@ -1,8 +1,10 @@
-<h1>Сотрудники деканата</h1>
-    
-    <a href="/employees/create">+ Добавить сотрудника</a>
-    
-    <table>
+<section class="all-students">
+    <div class="add-student">
+        <h1>Сотрудники деканата</h1>
+        <a href="/employees/create">+ Добавить сотрудника</a>
+    </div>
+    <section class="table-students">
+       <table>
         <thead>
             <tr>
                 <th>ID</th>
@@ -22,10 +24,21 @@
                         <td><?= $employee->user_id ?></td>
                         <td><?= htmlspecialchars($employee->full_name) ?></td>
                         <td><?= htmlspecialchars($employee->login) ?></td>
-                        <td><?= $employee->role === 'dean' ? 'Сотрудник деканата' : $employee->role ?></td>
+                        <td>
+                            <?php if(app()->auth::user()->role === 'admin'):  ?>
+                                <select id="<?= $employee->user_id ?>">
+                                    <option  <?= $employee->role === 'dean' ? 'selected' : "" ?> value="dean">Сотруник деканата</option>
+                                    <option  <?= $employee->role === 'admin' ? 'selected' : "" ?> value="admin">Администратор</option>
+                                </select>
+                            <?php else:  ?>
+                            <?= $employee->role === 'dean' ? 'Сотрудник деканата' : $employee->role ?></td>
+                        <?php endif ?> 
                     </tr>
                 <?php endforeach; ?>
             <?php endif; ?>
+
         </tbody>
     </table>
-    
+   <script src="js/employees.js"></script>   
+    </section>
+</section>

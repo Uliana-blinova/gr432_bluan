@@ -11,8 +11,9 @@ class User extends Model implements IdentityInterface
    use HasFactory;
 
    public $timestamps = false;
+   protected $primaryKey = 'user_id';
+
    protected $fillable = [
-        'user_id',
        'full_name',
        'login',
        'password',

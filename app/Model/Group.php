@@ -15,7 +15,7 @@ class Group extends Model{
     public function students(){
         return $this->hasMany(Student::class, 'group_id', 'group_id');
     }
-    public function study_plan(){
-        return $this->hasMany(Study_plan::class, 'group_id', 'group_id');
+    public function studyplan(){
+        return $this->hasMany(StudyPlan::class, 'group_id', 'group_id');
     }
 }

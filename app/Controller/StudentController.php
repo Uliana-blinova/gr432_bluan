@@ -11,15 +11,8 @@ class StudentController{
         $students = Student::with('group')->get();
         return (new View())->render('students.index', ['students' => $students]);
     }
-    public function show(Request $request): string{
-        $student = Student::with(['group', 'grades.discipline'])->find($request->id);
-        if(!$student){
-            return (new View())->render('errors.404', ['message' => 'Студент не найден']);         
-        }
-        return (new View())->render('students.show', ['student' => $student]);
-    }
     public function create(): string{
-        $groups = Group::all();
+        $groups = Group::get();
         return (new View())->render('students.create', ['groups' => $groups]);
     }
     public function store(Request $request): void{

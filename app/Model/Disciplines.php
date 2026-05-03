@@ -12,8 +12,8 @@ class Disciplines extends Model{
     protected $fillable = [
         'name'
     ];
-    public function study_plan(){
-        return $this->hasMany(Study_plan::class, 'discipline_id', 'discipline_id');
+    public function studyplan(){
+        return $this->hasMany(StudyPlan::class, 'discipline_id', 'discipline_id');
     }
     public function grades(){
         return $this->hasMany(Grade::class, 'discipline_id', 'discipline_id');
