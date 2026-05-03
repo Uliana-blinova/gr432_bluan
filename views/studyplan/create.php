@@ -5,7 +5,7 @@
         <select name="group_id" required>
             <option value="">Выберите группу</option>
             <?php foreach ($groups as $group): ?>
-                <option value="<?= $group->grouЫЁp_id ?>"><?= htmlspecialchars($group->name) ?></option>
+                <option value="<?= $group->group_id ?>"><?= htmlspecialchars($group->name) ?></option>
             <?php endforeach; ?>
         </select>
     </div>

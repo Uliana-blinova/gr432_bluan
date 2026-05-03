@@ -7,6 +7,7 @@ use Src\View;
 use Src\Request;
 use Model\User;
 use Src\Auth\Auth;
+use Src\Validator\Validator;
 
 class Site
 {
@@ -31,12 +32,31 @@ class Site
     ]);
    }
     public function signup(Request $request): string
-    {
-   if ($request->method === 'POST' && User::create($request->all())) {
-       app()->route->redirect('/hello');
-   }
-   return new View('site.signup');
+{
+    if ($request->method === 'POST') {
+        $validator = new Validator($request->all(), [
+            'full_name' => ['required'],
+            'login' => ['required', 'unique:users,login'],
+            'password' => ['required']
+        ], [
+            'required' => 'Поле :field пусто',
+            'unique' => 'Пользователь с таким логином уже существует'
+        ]);
+
+        if ($validator->fails()) {
+            return (new View())->render('site.signup', [
+                'errors' => $validator->errors()  // ← Передаем массив ошибок
+            ]);
+        }
+
+        if (User::create($request->all())) {
+            app()->route->redirect('/login');
+        }
+    }
+    
+    return (new View())->render('site.signup');
 }
+
 public function login(Request $request): string
 {
    if ($request->method === 'GET') {

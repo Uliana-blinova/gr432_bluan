@@ -4,5 +4,10 @@ return [
    'identity' => \Model\User::class,
    'routeMiddleware' => [
        'auth' => \Middlewares\AuthMiddleware::class,
+   ],
+      'validators' => [
+       'required' => \Validators\RequireValidator::class,
+       'unique' => \Validators\UniqueValidator::class
    ]
+
 ];
