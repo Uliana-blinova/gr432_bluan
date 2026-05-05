@@ -4,6 +4,7 @@
         <a href="/employees/create">+ Добавить сотрудника</a>
     </div>
     <section class="table-students">
+        <input name="csrf_token" type="hidden" value="<?= app()->auth::generateCSRF() ?>"/>
        <table>
         <thead>
             <tr>
@@ -39,6 +40,6 @@
 
         </tbody>
     </table>
-   <script src="js/employees.js"></script>   
+   <script src="js/employees.js?<?= time() ?>"></script>   
     </section>
 </section>

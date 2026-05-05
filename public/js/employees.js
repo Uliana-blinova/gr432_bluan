@@ -3,11 +3,14 @@ selected.forEach(select => {
     select.addEventListener('change', ()=>{
         let value = select.value;
         let id = select.id;
+        let data_value = document.querySelector('input[name=csrf_token]').value;
         let object = {
             role: value,
-            employee: id
+            employee: id,
+            csrf_token: data_value,
         }
-        fetch('/employees/change_role', {
+        console.log(object);
+        fetch('http://localhost/pop-it-mvc/employees/change_role', {
             body: JSON.stringify(object), 
             method: 'POST',
             headers: {

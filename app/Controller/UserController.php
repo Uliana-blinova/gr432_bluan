@@ -33,9 +33,11 @@ class UserController{
     }
     public function change_role(Request $request): void 
     {
+        
        $employee =  User::findIdentity($request -> employee);
        $employee::update($request);
     }
+
 
 }
 

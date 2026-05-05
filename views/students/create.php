@@ -1,5 +1,6 @@
-<form action="/pop-it-mvc/students/store" method="POST" class="student-form">
+<form action="store" method="POST" class="student-form">
     <h1>Добавление студента</h1>
+    <input name="csrf_token" type="hidden" value="<?= app()->auth::generateCSRF() ?>"/>
     <div class="form-group">
         <input type="text" name="surname" placeholder="Фамилия" class="form-input" required>
     </div>

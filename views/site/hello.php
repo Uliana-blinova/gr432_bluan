@@ -52,7 +52,7 @@
             <p>Добавить дисциплину</p>
         </div>
         </a>
-        <a href="/grades/create" class="card-link">
+        <a href="grades/create" class="card-link">
             <div class="card">
             <span>+</span>
             <p>Внести оценки</p>

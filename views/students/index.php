@@ -1,7 +1,7 @@
 <section class="all-students">
     <div class="add-student">
         <h1>Список студентов</h1>
-        <a href="/students/create">Добавить студента</a>
+        <a href="students/create">Добавить студента</a>
     </div>
     <section class="table-students">
         <table>

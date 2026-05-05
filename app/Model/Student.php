@@ -16,6 +16,7 @@ class Student extends Model{
         'gender',
         'birth_date',
         'address',
+        'photo',
         'group_id'
     ];
     public function group(){
