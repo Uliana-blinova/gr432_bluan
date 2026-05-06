@@ -1,4 +1,4 @@
-<form action="/grades/store" method="POST" class="student-form">
+<form action="store" method="POST" class="student-form">
     <h1>Выставить оценку студенту</h1>
     <div class="form-group">
         <label>Студент</label>

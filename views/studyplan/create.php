@@ -1,4 +1,4 @@
-<form action="pop-it-mvc/studyplan/store" method="POST" class="student-form">
+<form action="store" method="POST" class="student-form">
     <h1>Добавить дисциплину в учебный план</h1>
     <div class="form-group">
         <label>Группа</label>

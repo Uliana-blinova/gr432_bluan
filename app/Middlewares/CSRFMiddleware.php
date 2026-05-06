@@ -10,7 +10,6 @@ class CSRFMiddleware
 {
    public function handle(Request $request): void
    {
-    var_dump($request);
        if ($request->method !== 'POST') {
            return;
        }

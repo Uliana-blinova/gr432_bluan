@@ -20,6 +20,7 @@ class Grade extends Model{
     }
     
     public function discipline(){
-        return $this->belongsTo(Disciplines::class, 'discipline_id', 'discipline_id');
+        return $this->hasMany(Disciplines::class, 'discipline_id', 'discipline_id');
     }
+    
 }

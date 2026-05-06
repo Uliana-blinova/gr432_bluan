@@ -4,20 +4,15 @@ selected.forEach(select => {
         let value = select.value;
         let id = select.id;
         let data_value = document.querySelector('input[name=csrf_token]').value;
-        let object = {
-            role: value,
-            employee: id,
-            csrf_token: data_value,
-        }
-        console.log(object);
+        let form_data = new FormData();
+        form_data.append('role', value);
+        form_data.append('employee', id);
+        form_data.append('csrf_token', data_value);
         fetch('http://localhost/pop-it-mvc/employees/change_role', {
-            body: JSON.stringify(object), 
-            method: 'POST',
-            headers: {
-                'Content-Type':'application/json'
-            }
+            body: form_data, 
+            method: 'POST'
         }
-        ).then((res) => res.text())
+        ).then((res) => res.json())
         .then((res) => {
             console.log(res);
             

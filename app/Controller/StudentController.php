@@ -16,12 +16,31 @@ class StudentController{
         return (new View())->render('students.create', ['groups' => $groups]);
     }
     public function store(Request $request): void{
-        if($request->method === 'POST'){
-            Student::create($request->all());
-            app()->route->redirect('/students');
+          if ($request->method === 'POST') {
+        $data = $request->all();
+        
+        $files = $request->files();
+        if (!empty($files['photo']['name']) && $files['photo']['error'] === UPLOAD_ERR_OK) {
+            $uploadDir = __DIR__ . '/../../public/uploads/';
+            
+            if (!is_dir($uploadDir)) {
+                mkdir($uploadDir, 0755, true);
+            }
+            
+            $extension = pathinfo($files['photo']['name'], PATHINFO_EXTENSION);
+            $filename = 'student_' . time() . '.' . $extension;
+            $targetPath = $uploadDir . $filename;
+            
+            if (move_uploaded_file($files['photo']['tmp_name'], $targetPath)) {
+                $data['photo'] = 'uploads/' . $filename;
+            }
         }
-        app()->route->redirect('/students/create');
+        
+        Student::create($data);
+        app()->route->redirect('/students');
     }
+    app()->route->redirect('/students/create');
+}
     public function search(Request $request): string{
         $query = $request->query ?? '';
         $students = Student::where('surname', 'LIKE', "%{$query}%")

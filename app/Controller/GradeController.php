@@ -60,7 +60,8 @@ class GradeController{
     
     public function getByStudent($studentId): string{
         $grades = Grade::where('student_id', $studentId)
-                      ->with(['discipline'])
+                    ->with(['discipline_by_group'])
+                    //   ->with(['disciplines', 'groups', 'study_plan', 'discipline_by_group'])
                       ->get();
         
         $student = Student::with('group')->find($studentId);

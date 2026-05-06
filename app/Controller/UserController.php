@@ -29,13 +29,20 @@ class UserController{
             return;
         }
         
-        app()->route->redirect('/employees/create');
+        app()->route->redirect('employees/create');
     }
     public function change_role(Request $request): void 
-    {
-        
-       $employee =  User::findIdentity($request -> employee);
-       $employee::update($request);
+    {        
+       $employee =  User::find($request -> employee);
+       if($employee && $request->role){
+            $employee->update(['role' => $request->role]);
+            header('Content-Type:apllication/json');
+            echo json_encode(['success'=>true]);
+            return;
+       }
+        header('Content-Type:apllication/json');
+        http_response_code(400);
+        echo json_encode(['success'=>false]);
     }
 
 

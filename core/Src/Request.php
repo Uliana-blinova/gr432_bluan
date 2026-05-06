@@ -19,7 +19,7 @@ class Request
 
    public function all(): array
    {
-       return $this->body + $this->files() + ($this->json() != NULL ? $this->json() : []);
+       return $this->body + $this->files();
 
    }
 
@@ -45,9 +45,5 @@ class Request
        }
        throw new Error('Accessing a non-existent property');
    }
-   public function json():array|null{
-    var_dump($_POST);
-    return json_decode(file_get_contents('php://input'));
-
-   }
+   
 }

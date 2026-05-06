@@ -34,19 +34,19 @@
         </div>
     </section>
     <section class="quick-action">
-        <a href="/students/create" class="card-link">
+        <a href="students/create" class="card-link">
             <div class="card">
             <span>+</span>
             <p>Добавить студента</p>
         </div>
         </a>
-        <a href="/groups/create" class="card-link">
+        <a href="groups/create" class="card-link">
             <div class="card">
             <span>+</span>
             <p>Добавить группу</p>
         </div>
         </a>
-        <a href="/disciplines/create" class="card-link">
+        <a href="disciplines/create" class="card-link">
             <div class="card">
             <span>+</span>
             <p>Добавить дисциплину</p>

@@ -18,4 +18,7 @@ class Disciplines extends Model{
     public function grades(){
         return $this->hasMany(Grade::class, 'discipline_id', 'discipline_id');
     }
+     public function groups(){
+        return $this->hasMany(Grade::class, 'discipline_id', 'discipline_id');
+    }
 }

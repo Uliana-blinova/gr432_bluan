@@ -1,7 +1,7 @@
 <section class="all-students">
     <div class="add-student">
         <h1>Учебный план</h1>
-        <a href="/studyplan/create">+ Добавить в план</a>
+        <a href="studyplan/create">+ Добавить в план</a>
     </div>
     <section class="table-students">
         <table>

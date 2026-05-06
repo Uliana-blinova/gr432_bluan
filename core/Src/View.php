@@ -42,8 +42,6 @@ class View
        $path = $this->getPathToView($view);
 
        if (file_exists($this->getPathToMain()) && file_exists($path)) {
-
-
            ob_start();
            extract($data, EXTR_PREFIX_SAME, '');
            require $path;
